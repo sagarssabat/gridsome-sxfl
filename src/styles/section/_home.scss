@@ -10,8 +10,8 @@
   background-repeat: no-repeat;
 
   &.sx-component {
-    @include flexbox();
-    @include align-items(center);
+    // @include flexbox();
+    // @include align-items(center);
     padding: 0px;
   }
 

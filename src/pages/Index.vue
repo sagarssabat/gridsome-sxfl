@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <section class="sx-component home-bg">
-      <VueSlickCarousel :arrows="true" :dots="true" :adaptiveHeight="true">
+      <VueSlickCarousel :arrows="true" :dots="true" :fade="true">
         <div class="carousel1">
           <div class="content-wrap">
             <img
@@ -658,5 +658,10 @@ export default {
 <style>
 .home-links a {
   margin-right: 1rem;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  z-index: 1029;
 }
 </style>
