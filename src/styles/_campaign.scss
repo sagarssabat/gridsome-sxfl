@@ -1,0 +1,90 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+
+.campaign {
+  background-color: #0db500;
+  color: $--color-white;
+  .sx-body {
+    margin-top: 0px;
+  }
+  .card {
+    &-title {
+      color: $--color-secondary;
+      font-family: $--font-bold;
+      font-variant-caps: all-small-caps;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    &-icon {
+      font-size: 54px;
+    }
+    &-rating {
+      font-family: $--font-bold;
+      font-size: 20px;
+      display: block;
+      margin-top: 8px;
+    }
+  }
+}
+.site.home .sx-component:not(.home-bg).campaign {
+  min-height: auto;
+  padding: 20px 0;
+  background-image: url("../assets/images/pattern-bg.jpg");
+  background-repeat: repeat;
+  background-blend-mode: color-dodge;
+}
+.site.home {
+  .sx-component {
+    &.campaign {
+      .sx-head--page-title {
+        span {
+          background-color: transparent;
+          color: $--color-white;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .campaign {
+    .card {
+      &-icon {
+        font-size: 30px;
+      }
+      &-title {
+        font-size: 13px;
+        margin-bottom: 0px;
+      }
+      &-rating {
+        font-family: $--font-bold;
+        font-size: 16px;
+      }
+    }
+    .sx-static-info {
+      .play-cards {
+        .card {
+          &-list {
+            @include flexbox();
+          }
+          &-item {
+            & + .card-item {
+              margin-left: 10px;
+              margin-top: 0px;
+            }
+          }
+          &-icon {
+            font-size: 30px;
+          }
+          &-title {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  .site.home .sx-component.campaign {
+    .sx-head--page-title {
+      margin-bottom: 20px;
+    }
+  }
+}

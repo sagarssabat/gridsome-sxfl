@@ -1,0 +1,113 @@
+@import "../_mixins.scss";
+
+.sx-table {
+  &+.sx-table {
+    margin-top: 30px;
+  }
+
+  .table-striped {
+    tbody {
+      tr:nth-of-type(odd) {
+        background-color: rgba($--color-blue, 0.1);
+      }
+    }
+  }
+
+  .table-hover {
+    tbody {
+      tr:hover {
+        background-color: rgba($--color-secondary, 0.5);
+        color: $--color-white;
+      }
+    }
+  }
+
+  .table {
+    @include roundedCorners(15);
+    overflow: hidden;
+
+    thead {
+      letter-spacing: 1px;
+
+      .icon-svg {
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+
+        img {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
+        }
+      }
+
+      th {
+        text-transform: uppercase;
+        border-bottom: 2px solid $--color-primary;
+        border-top: 1px solid $--color-primary;
+      }
+    }
+
+    th {
+      font-size: 16px;
+      text-transform: capitalize;
+    }
+  }
+
+  thead {
+    background-color: $--color-primary;
+
+    th {
+      color: $--color-white;
+      text-align: center;
+
+
+      &:nth-child(n+2) {
+        text-align: center;
+      }
+    }
+
+    // @media only screen and (min-width: 768px) {
+    //   th {
+    //     &:nth-child(n+2) {
+    //       width: 25%;
+    //     }
+    //   }
+    // }
+  }
+
+  tr {
+    transition: 0.2s;
+  }
+
+  tbody {
+    font-size: 16px;
+
+    tr {
+      td {
+        text-align: center;
+        vertical-align: middle;
+
+        @media only screen and (min-width: 768px) {
+          width: 25%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sx-table {
+    .table {
+      th {
+        font-size: 14px;
+      }
+    }
+
+    tbody {
+      td {
+        font-size: 14px;
+      }
+    }
+  }
+}

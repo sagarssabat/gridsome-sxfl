@@ -1,0 +1,15 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+
+.sx-contact {
+  background-color: $--color-secondary;
+  color: $--color-white;
+
+  .sx-btn-home {
+    color: $--color-white;
+  }
+
+
+}
+
+@media only screen and (max-width: 768px) {}

@@ -1,0 +1,205 @@
+.sx-static-info {
+  font-size: 16px;
+
+  ul,
+  ol,
+  p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  ul {
+    padding-inline-start: 40px;
+    list-style: disc;
+  }
+
+  li {
+    margin-bottom: 15px;
+  }
+
+  a {
+    font-family: $--font-medium;
+    color: $--color-highlight;
+    text-decoration: underline;
+
+    &:hover {
+      color: darken($--color-highlight, 10%);
+      text-decoration: underline;
+    }
+  }
+
+  .title {
+    font-family: $--font-bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .custom-list {
+    list-style: none;
+    padding-inline-start: 0px;
+
+    li {
+      position: relative;
+      padding-inline-start: 40px;
+    }
+  }
+
+  .content-title {
+    font-family: $--font-bold;
+    color: $--color-green;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .play-cards {
+    .card {
+      &-list {
+        @include flexbox();
+        margin: 0 -10px;
+      }
+
+      &-item {
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+        @include roundedCorners(5);
+        color: $--color-white;
+        width: 33.33%;
+        margin: 0 10px;
+        transition: 0.4s;
+        text-align: center;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#071b5c+0,071b5c+0,75c3ee+100 */
+        background: rgb(7, 27, 92);
+        /* Old browsers */
+        background: -moz-linear-gradient(
+          -45deg,
+          rgba(7, 27, 92, 1) 0%,
+          rgba(7, 27, 92, 1) 0%,
+          rgba(117, 195, 238, 1) 100%
+        );
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(
+          -45deg,
+          rgba(7, 27, 92, 1) 0%,
+          rgba(7, 27, 92, 1) 0%,
+          rgba(117, 195, 238, 1) 100%
+        );
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(
+          135deg,
+          rgba(7, 27, 92, 1) 0%,
+          rgba(7, 27, 92, 1) 0%,
+          rgba(117, 195, 238, 1) 100%
+        );
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#071b5c', endColorstr='#75c3ee', GradientType=1);
+
+        /* IE6-9 fallback on horizontal gradient */
+        a {
+          color: $--color-white;
+          padding: 30px 10px;
+          display: block;
+          text-decoration: none;
+        }
+
+        &:hover {
+          box-shadow: 2px 2px 6px rgba($--color-primary, 0.8);
+        }
+      }
+
+      &-icon {
+        font-size: 40px;
+        line-height: 1;
+        // width: 50px;
+        // margin: 0 auto;
+        // display: block;
+
+        // img {
+        //   width: 100%;
+        // }
+      }
+
+      &-title {
+        font-family: $--font-bold;
+        margin-bottom: 0;
+        margin-top: 5px;
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+
+      &-wrap {
+        line-height: 1;
+      }
+    }
+  }
+
+  .sx-notes {
+    font-style: italic;
+    font-variant-caps: all-petite-caps;
+  }
+
+  &.terms-text {
+    li {
+      list-style: none;
+    }
+    .number-list {
+      font-family: $--font-medium;
+      padding-right: 40px;
+    }
+    .nav-tabs {
+      padding: 0px;
+    }
+    p {
+      strong {
+        color: $--color-green;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sx-static-info {
+    font-size: 14px;
+
+    .play-cards {
+      .card {
+        &-list {
+          margin: 0px;
+          display: block;
+        }
+
+        &-item {
+          margin: 0px;
+          width: 100%;
+
+          & + .card-item {
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+
+    .content-title {
+      font-size: 14px;
+    }
+    &.terms-text {
+      .sx-body {
+        text-align: justify;
+      }
+      .number-list {
+        padding-right: 20px;
+      }
+      .sx-tabs {
+        .nav-tabs {
+          overflow-x: auto;
+          flex-wrap: nowrap;
+          margin: 0 -20px;
+        }
+        .tab-content {
+          padding: 20px 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,511 @@
+@import "_custom-tooltip.scss";
+@import "_contact.scss";
+@import "_contest-details.scss";
+@import "_refer-friend.scss";
+@import "_fonts.scss";
+@import "_footer.scss";
+@import "_form.scss";
+@import "_mixins.scss";
+@import "_static.scss";
+@import "_error.scss";
+@import "_swiper-bundle.scss";
+@import "_variables.scss";
+@import "_campaign.scss";
+@import "_download-app.scss";
+
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+.site-content {
+  padding-top: 69px;
+  padding-bottom: 326px;
+  transition: 0.4s;
+
+  &:before {
+    content: "";
+    background-color: rgba($--color-black, 0.7);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.site {
+  min-height: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $--font-regular;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $--color-highlight;
+    height: 50px;
+    border-radius: 0px;
+  }
+
+  &.home {
+    background-color: $--color-primary;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  .site-content {
+    &::before {
+      z-index: 2;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+button {
+  font-family: $--font-medium;
+  min-width: 125px;
+  padding: 4px 8px;
+  cursor: pointer;
+  text-transform: capitalize;
+
+  &:hover {
+    color: inherit;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.btn {
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &.btn-icon {
+    min-width: auto;
+    border: none;
+    background: transparent;
+
+    .feather {
+      margin-right: 0px;
+    }
+  }
+}
+
+.custom-btn-group {
+  text-align: right;
+
+  .btn {
+    & + .btn {
+      margin-left: 15px;
+    }
+  }
+}
+
+.section-content {
+  position: relative;
+  z-index: 1;
+
+  .section {
+    &__small-title {
+      color: $--color-highlight;
+      font-family: $--font-bold;
+      text-transform: capitalize;
+      font-size: 14px;
+    }
+
+    &__title {
+      font-family: $--font-bold;
+      font-size: 28px;
+      letter-spacing: 1px;
+      text-transform: capitalize;
+    }
+
+    &__text {
+      max-width: 550px;
+      font-size: 18px;
+      margin: 10px auto 20px;
+    }
+
+    &__border {
+      position: relative;
+
+      img {
+        width: 15px;
+      }
+
+      &:before,
+      &:after {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        background-color: $--color-highlight;
+        width: 80px;
+        height: 1px;
+      }
+    }
+  }
+}
+
+.back_top {
+  @include roundedCorners(5);
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+  background-color: $--color-highlight;
+  color: $--color-white;
+  height: 40px;
+  width: 40px;
+  font-size: 26px;
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  z-index: 1;
+  display: none;
+
+  img {
+    width: 25px;
+  }
+}
+
+.site {
+  &:not(.home) {
+    .sx-head {
+      @include flexbox();
+      @include justify-content(center);
+      @include align-items(center);
+      min-height: 250px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: 100%;
+        background-image: url("../assets/images/ground-bg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($--color-primary, 0.6);
+      }
+
+      &--page-title {
+        font-family: $--font-black;
+        color: $--color-white;
+        font-size: 26px;
+        letter-spacing: 1px;
+        z-index: 1;
+        // margin-bottom: 30px;
+        text-transform: uppercase;
+        text-align: center;
+        position: relative;
+        width: 100%;
+        // span {
+        //   background-color: $--color-white;
+        //   padding: 0 10px;
+        //   z-index: 1;
+        //   display: inline-block;
+        // }
+
+        // &::before {
+        //   content: '';
+        //   position: absolute;
+        //   top: 50%;
+        //   transform: translateY(-50%);
+        //   left: 0;
+        //   height: 2px;
+        //   width: 100%;
+        //   z-index: -1;
+        // }
+
+        // &::before {
+        //   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#071b5c+0,071b5c+25,071b5c+75,7db9e8+100&0+0,1+25,1+75,0+100 */
+        //   background: -moz-linear-gradient(left, rgba(7, 27, 92, 0) 0%, rgba(7, 27, 92, 1) 25%, rgba(7, 27, 92, 1) 75%, rgba(125, 185, 232, 0) 100%);
+        //   /* FF3.6-15 */
+        //   background: -webkit-linear-gradient(left, rgba(7, 27, 92, 0) 0%, rgba(7, 27, 92, 1) 25%, rgba(7, 27, 92, 1) 75%, rgba(125, 185, 232, 0) 100%);
+        //   /* Chrome10-25,Safari5.1-6 */
+        //   background: linear-gradient(to right, rgba(7, 27, 92, 0) 0%, rgba(7, 27, 92, 1) 25%, rgba(7, 27, 92, 1) 75%, rgba(125, 185, 232, 0) 100%);
+        //   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        //   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00071b5c', endColorstr='#007db9e8', GradientType=1);
+        //   /* IE6-9 */
+        // }
+      }
+
+      &-description {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &.home {
+    .sx-component {
+      @include flexbox();
+      @include align-items(center);
+      // background-color: $--color-primary;
+      min-height: calc(100vh - 69px);
+      position: relative;
+
+      &.download-banner,
+      &.section-partners {
+        min-height: auto;
+      }
+
+      &:not(.home-bg) {
+        padding: 80px 0;
+      }
+
+      .sx-head {
+        &--page-title {
+          font-family: $--font-bold;
+          color: $--color-primary;
+          font-size: 26px;
+          margin-bottom: 20px;
+          text-align: center;
+          text-transform: uppercase;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            height: 2px;
+            width: 100%;
+            z-index: -1;
+          }
+
+          &::before {
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#071b5c+0,df6401+25,df6401+75,7db9e8+100&0+0,1+25,1+75,0+100 */
+            background: -moz-linear-gradient(
+              left,
+              rgba(7, 27, 92, 0) 0%,
+              rgba(223, 100, 1, 1) 25%,
+              rgba(223, 100, 1, 1) 75%,
+              rgba(125, 185, 232, 0) 100%
+            ); /* FF3.6-15 */
+            background: -webkit-linear-gradient(
+              left,
+              rgba(7, 27, 92, 0) 0%,
+              rgba(223, 100, 1, 1) 25%,
+              rgba(223, 100, 1, 1) 75%,
+              rgba(125, 185, 232, 0) 100%
+            ); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(
+              to right,
+              rgba(7, 27, 92, 0) 0%,
+              rgba(223, 100, 1, 1) 25%,
+              rgba(223, 100, 1, 1) 75%,
+              rgba(125, 185, 232, 0) 100%
+            ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00071b5c', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
+          }
+          span {
+            background-color: $--color-white;
+            padding: 0 10px;
+          }
+        }
+      }
+
+      &.download-banner {
+        padding: 20px 0;
+
+        .sx-head {
+          &--page-title {
+            color: $--color-white;
+            font-size: 22px;
+            margin-bottom: 0px;
+            line-height: 1.4;
+            text-transform: capitalize;
+          }
+        }
+      }
+
+      // &:nth-child(odd) {
+      //   background-color: $--color-white;
+
+      //   .sx-head {
+      //     &--page-title {
+      //       color: $--color-primary;
+      //     }
+      //   }
+      // }
+
+      &.home-bg {
+        min-height: auto;
+      }
+    }
+  }
+}
+
+.sx-body {
+  // font-family: $--font-light;
+  margin-top: 20px;
+}
+
+.sx-component {
+  padding: 0px 0px 40px;
+}
+
+.card {
+  border: none;
+
+  .card {
+    &-title {
+      margin-bottom: 0px;
+
+      text-transform: uppercase;
+    }
+
+    &-body {
+      // padding: 0px;
+    }
+  }
+}
+.swiper-pagination {
+  &-bullet {
+    @include roundedCorners(5);
+    width: 30px;
+    height: 5px;
+    background-color: $--color-white;
+  }
+}
+.icon-thumbs-up {
+  &--bohot {
+    &::after {
+      content: "\e81a";
+      font-family: "sx-icon-font";
+      margin: 0 10px;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  button {
+    min-width: 80px;
+  }
+
+  .section-content {
+    .section__text {
+      font-size: 16px;
+    }
+  }
+
+  .site-content {
+    padding-top: 56px;
+    padding-bottom: 698px;
+  }
+
+  .site {
+    &:not(.home) {
+      .sx-head {
+        min-height: 180px;
+
+        &::before {
+          background-size: cover;
+        }
+
+        &--page-title {
+          font-size: 20px;
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+
+      .site-content {
+        padding-top: 56px;
+      }
+    }
+
+    &.home {
+      .sx-component {
+        padding: 50px 0;
+
+        .sx-head {
+          &--page-title {
+            font-size: 20px;
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  .sx-body {
+    font-size: 14px;
+  }
+
+  .site.home .sx-component:not(.home-bg) {
+    padding: 40px 0;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .site-content {
+    padding-top: 56px;
+    padding-bottom: 540px;
+  }
+}

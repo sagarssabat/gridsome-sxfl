@@ -1,0 +1,76 @@
+@import "../_variables.scss";
+
+.sx-accordion {
+  font-size: 16px;
+  margin-bottom: 30px;
+
+  .accordion>.card>.card-header {
+    margin-bottom: 0px;
+  }
+
+  .btn.btn-link:not(.collapsed) {
+    background-color: rgba($--color-primary, 0.9);
+    color: $--color-white;
+
+    &~span {
+      color: $--color-white;
+      transition: 0.4s;
+
+      &::before {
+        content: '\e809';
+      }
+    }
+  }
+
+  .btn-link {
+    font-family: $--font-medium;
+    color: $--color-primary;
+    width: 100%;
+    padding: 16px 20px;
+    transition: 0.4s;
+    font-size: 16px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .card {
+    border: none;
+    box-shadow: 0px 1px 4px rgba($--color-primary, 0.4);
+
+    &+.card {
+      margin-top: 10px;
+    }
+
+    &-header {
+      padding: 0px;
+      border-bottom: 1px solid rgba($--color-primary, 0.4);
+      background-color: transparent;
+      position: relative;
+    }
+  }
+
+  .icon-plus,
+  .icon-minus {
+    color: $--color-primary;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sx-accordion {
+
+    .btn-link,
+    .card-body {
+      font-size: 14px;
+    }
+  }
+}

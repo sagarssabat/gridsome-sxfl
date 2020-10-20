@@ -1,0 +1,45 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+
+.download-app{
+  .sitenav__download{
+    @include justify-content (center);
+    position: relative;
+    bottom: 0px;
+    @media only screen and (min-width: 768px){            
+      .sx-btn{
+        span{
+            font-size: 12px;
+            em{
+                font-size: 18px;
+            }
+        }
+        &+.sx-btn{
+            margin-left: 20px;
+        }
+      }
+    }
+    &>a+a{
+      margin-left: 10px;
+    }
+  }
+}
+
+.site.home .sx-component:not(.home-bg).download-app{
+  min-height: auto;
+}
+@media only screen and (min-width: 768px){ 
+  .download-app{
+    .sitenav__download{
+        min-width: 220px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px){ 
+  .download-app{
+    .sitenav__download{
+        flex-direction: row;
+    }
+  }
+}

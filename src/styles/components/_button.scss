@@ -1,0 +1,90 @@
+@import "../_mixins.scss";
+
+.sx-btn {
+  @include roundedCorners(5);
+  line-height: 1;
+  padding: 10px;
+  min-width: 160px;
+  text-transform: uppercase;
+  border: none;
+
+  span {
+    font-family: $--font-regular;
+    display: block;
+    font-size: 10px;
+    text-align: left;
+  }
+
+  em {
+    font-family: $--font-bold;
+    font-size: 16px;
+    display: block;
+    font-style: normal;
+  }
+
+  &--home {
+    text-align: center;
+
+    display: block;
+
+    .sx-btn {
+      background: #c6321a;
+      color: $--color-white;
+    }
+  }
+}
+
+.sitenav__download {
+  @include flexbox();
+  @include justify-content(space-evenly);
+  @include align-items(center);
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+
+  .sx-btn {
+    @include flexbox();
+    @include align-items(center);
+    background-color: #198c1a;
+    // background-color: #1cac1d;
+    color: $--color-white;
+
+    &::before {
+      font-size: 26px;
+    }
+  }
+}
+
+.sx-btn-primary{
+  color: $--color-white;
+  transition: 0.2s;
+  background-color: #c6321a;
+  &:hover{
+    background-color: darken(#c6321a, 10%);
+    color: $--color-white;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .sitenav__download {
+    // flex-direction: column;
+
+    // .sx-btn {
+
+    //   &+.sx-btn {
+    //     margin-top: 5px;
+    //   }
+    // }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .sx-btn{
+    font-size: 14px;
+
+    &+.sx-btn{
+      margin-top: 0px;
+      margin-left: 10px;
+    }
+  }
+}

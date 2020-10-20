@@ -1,0 +1,143 @@
+@import "../_mixins.scss";
+@import "../_variables.scss";
+
+.section-why {
+  .card {
+    @include roundedCorners(10);
+    // box-shadow: 0px 0px 12px rgba($--color-primary, 0.1);
+    transition: 0.4s;
+    text-align: center;
+    cursor: pointer;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fac020+0,f84d05+100 */
+    background: #fac020; /* Old browsers */
+    background: -moz-linear-gradient(left, #fac020 0%, #f84d05 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #fac020 0%,#f84d05 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #fac020 0%,#f84d05 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fac020', endColorstr='#f84d05',GradientType=1 ); /* IE6-9 */
+
+    &:hover {
+      // box-shadow: 0px 0px 12px rgba($--color-primary, 0.3);
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      z-index: 1;
+      border-top: 30px solid $--color-primary;
+      border-right: 30px solid transparent;
+    }
+    &-img-contest {
+      background-color: $--color-white;
+      width: 35%;
+      width: 120px;
+      height: 120px;
+      // margin: 0 auto;
+      margin-left: 15px;
+      border-radius: 50%;
+    }
+
+    &-body {
+      // padding: 0px;
+      padding: 15px;
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(center);
+    }
+
+    &-title {
+      font-family: $--font-bold;
+      color: $--color-white;
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-transform: capitalize;
+    }
+    .space-bg{
+      background-color: $--color-white;
+    }
+    .contest-name {
+      // background-color: $--color-white;
+      @include flexbox();
+      @include justify-content(center);
+      @include align-items(center);
+      height: 22px;
+
+      width: auto;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+    &--bg{
+      background-color: $--color-primary;
+      @media only screen and (min-width: 769px) {
+        // max-width: 1140px;
+        // width: 100%;
+        // padding-right: 15px;
+        // padding-left: 15px;
+        // margin-right: auto;
+        // margin-left: auto;
+      }
+    }
+  }
+
+  .sx-body {
+    &--content {
+      font-family: $--font-medium;
+      margin-bottom: 70px;
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+    }
+  }
+
+}
+.site.home{
+  .sx-component:not(.home-bg).section-why{
+    padding-bottom: 0px;
+    min-height: auto;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .section-why {
+    .col-md-4:nth-child(n+4) {
+      .card {
+        margin-top: 40px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .section-why {
+    .card {
+      // margin-bottom: 15px;
+      margin: 10px 20px;
+
+      &-title {
+        font-size: 16px;
+        margin-bottom: 0px !important;
+      }
+
+      &-img-contest{
+        width: 90px;
+        height: 90px;
+      }
+    }
+
+    .sx-body {
+      &--content {
+        margin-top: 10px;
+        margin-bottom: 40px;
+        font-size: 14px;
+      }
+    }
+
+    // .sx-head--page-title{
+    //   padding: 0 40px;
+    // }
+  }
+}

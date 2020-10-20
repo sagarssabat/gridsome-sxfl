@@ -1,0 +1,256 @@
+@import "../_mixins.scss";
+@import "../_variables.scss";
+
+.home-bg {
+  // min-height: calc(100vh - 69px);
+  position: relative;
+  background-image: url('../assets/images/home-bg.png');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.sx-component {
+    @include flexbox();
+    @include align-items(center);
+    padding: 0px;
+  }
+
+  .section-content {
+    @include flexbox();
+    @include justify-content(center);
+    @include align-items(center);
+    height: 100%;
+    z-index: 1;
+    max-width: 650px;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .content-wrap {
+    // @include flexbox();
+    // @include align-items(center);
+    // min-height: calc(100vh - 69px);
+    img{
+      width: 100%;
+    }
+    .content-left,
+    .content-right {
+      width: 50%;
+      opacity: 0;
+      // visibility: hidden;
+    }
+
+    .home-creative {
+      width: 53%;
+      margin: 0 auto;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .card {
+    background-color: transparent;
+
+    &-img-top {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    &-title {
+      font-family: $--font-black;
+      color: $--color-white;
+      text-shadow: 1px 1px 4px $--color-black;
+      letter-spacing: 1px;
+      font-size: 28px;
+      text-transform: uppercase;
+    }
+
+    &-body {
+      text-align: center;
+    }
+
+    .label {
+      background-color: $--color-white;
+      font-family: $--font-black;
+      box-shadow: 0px 0px 8px $--color-black;
+      padding: 5px 16px;
+      border-radius: 5px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+  }
+
+  .swiper-slide {
+    position: relative;
+
+    .content-wrap {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &.carousel1 {
+      // .content-wrap {
+      //   &::before {
+      //     background-image: url('../assets/images/carousel1-web.jpg');
+      //     background-size: 100%;
+      //   }
+      // }
+
+      .card {
+        &-description {
+          font-family: $--font-bold;
+          color: $--color-white;
+        }
+      }
+
+      @media only screen and (min-width: 769px) {
+        .home-creative {
+          width: 44%;
+        }
+
+        .card {
+          &-title {
+            font-size: 52px;
+            margin-bottom: 10px;
+            text-align: left;
+          }
+
+          &-description {
+            font-size: 22px;
+            text-align: left;
+          }
+        }
+      }
+
+      .sitenav__download {
+        @include justify-content(flex-start);
+        position: relative;
+        bottom: 0px;
+
+        .sx-btn+.sx-btn {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  // .home-bg {
+  //   .swiper-slide {
+  //     &.carousel2 {
+  //       .content-wrap {
+  //         &::before {
+  //           background-image: url('../assets/images/carousel2.jpg');
+  //           background-size: 100%;
+  //         }
+  //       }
+  //     }
+  //     &.carousel2 {
+  //       .content-wrap {
+  //         &::before {
+  //           background-image: url('../assets/images/carousel2.jpg');
+  //           background-size: 100%;
+  //         }
+  //       }
+  //     }
+
+  //     &.carousel3 {
+  //       .content-wrap {
+  //         &::before {
+  //           background-image: url('../assets/images/other-sports-web.jpg');
+  //           background-size: 100%;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+@media only screen and (max-width: 768px) {
+  // .home-bg {
+  //   .swiper-slide {
+  //     &.carousel1 {
+  //       .content-wrap {
+  //         &::before {
+  //           background-image: url('../assets/images/carousel1-mob.jpg');
+  //           background-size: cover;
+  //         }
+  //       }
+  //     }
+  //     &.carousel2 {
+  //       .content-wrap {
+  //         &::before {
+  //           background-image: url('../assets/images/carousel2-mob.png');
+  //           background-size: cover;
+  //         }
+  //       }
+  //     }
+
+  //     &.carousel3 {
+  //       .content-wrap {
+  //         &::before {
+  //           background-image: url('../assets/images/carousel3-mob.png');
+  //           background-size: cover;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  .site {
+    &.home {
+      .sx-component.home-bg {
+        padding: 0px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  // .home-bg {
+  //   background-size: cover;
+
+  //   .content-wrap {
+  //     @include justify-content(center);
+  //     padding: 50px 0;
+  //     flex-direction: column-reverse;
+
+  //     .content-left {
+  //       width: 90%;
+  //     }
+
+  //     .content-right {
+  //       width: 70%;
+  //     }
+
+  //     .home-creative {
+  //       width: 80%;
+  //     }
+  //   }
+
+  //   .card {
+  //     &-body {
+  //       padding: 0px;
+  //       margin-top: 20px;
+  //     }
+
+  //     &-title {
+  //       font-size: 18px;
+  //     }
+  //   }
+  // }
+}

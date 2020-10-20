@@ -1,0 +1,58 @@
+@import "../_mixins.scss";
+@import "../_variables.scss";
+
+
+.download-banner {
+  &.sx-component {
+    background-image: url('../assets/images/pattern-bg.jpg');
+    background-repeat: repeat;
+    padding: 40px 0;
+  }
+
+  .sitenav__download {
+    @include justify-content(space-evenly);
+    position: relative;
+    bottom: 0px;
+
+    // .sx-btn+.sx-btn {
+    //   margin-top: 15px;
+    // }
+    &>a+a{
+      margin-left: 15px;
+    }
+  }
+}
+.site.home{
+  .sx-component{
+    &.download-banner{
+      .sx-head--page-title{
+        span{
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 769px) {
+  .download-banner {
+    .sx-component {
+      &--wrap {
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+      }
+    }
+
+    .sitenav__download {
+      .sx-btn+.sx-btn {
+        margin-left: 15px;
+        margin-top: 0px;
+      }
+    }
+
+    .sx-body {
+      margin-left: 20px;
+      margin-top: 0px;
+    }
+  }
+}
